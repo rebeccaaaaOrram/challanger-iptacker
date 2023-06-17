@@ -1,5 +1,5 @@
 "use client";
-import Map from "@/components/Map";
+import { Map } from "@/components/Map";
 import { Header } from "@/components/Header";
 import { Summary } from "@/components/Summary";
 

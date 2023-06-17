@@ -2,7 +2,7 @@ import "leaflet/dist/leaflet.css";
 import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import { useIpTracker } from "@/hooks/useIpTracker";
 
-function Map() {
+export function Map() {
   const { zoom, customIcon, markerPosition } = useIpTracker();
 
   return (
@@ -26,5 +26,3 @@ function Map() {
     </>
   );
 }
-
-export default Map;
