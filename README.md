@@ -22,13 +22,11 @@ The challenge was to build an IP address tracker application that allows users t
 
 The solution was built using the following technologies:
 
-- React.js
+- NextJS13 - React.js
 
 - Leaflet.js (for displaying the map)
 
-- HTML
-
-- CSS
+- Tailwind
 
 ### What I Learned
 
