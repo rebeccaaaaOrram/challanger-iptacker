@@ -22,7 +22,7 @@ Frontend Mentor ajuda a praticar com projetos reais.
 
 ### Screenshot
 
-![](./preview.png)
+![](https://raw.githubusercontent.com/rebeccaaaaOrram/challanger-iptacker/main/public/preview.jpg)
 
 ### Links
 
