@@ -9,7 +9,7 @@ export function Summary() {
                       rounded-md max-sm:flex-col max-sm:gap-10 max-sm:items-start relative z-10"
     >
       <Card title="IP Address" content={data && data.ip} />
-      <Card title="Location" content={data && data.location.country} />
+      <Card title="Location" content={data && data.location.country + data.location.city} />
       <Card title="Timezone" content={data && data.location.timezone} />
       <Card title="ISP" content={data && data.isp} />
     </div>

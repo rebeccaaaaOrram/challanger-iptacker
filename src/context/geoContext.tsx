@@ -1,4 +1,5 @@
-"use client";
+'use client'
+import dynamic from "next/dynamic";
 import React, { createContext, ReactNode, useEffect, useState } from "react";
 import L from "leaflet";
 
@@ -22,6 +23,19 @@ interface IpTrackerProps {
 }
 
 export const IpTrackerContext = createContext<IpTrackerData>(null!);
+
+const MapContainer = dynamic(() => import("react-leaflet").then((module) => module.MapContainer), {
+  ssr: false, // Ensure the component is only loaded in the browser
+});
+
+const TileLayer = dynamic(() => import("react-leaflet").then((module) => module.TileLayer), {
+  ssr: false,
+});
+
+const Marker = dynamic(() => import("react-leaflet").then((module) => module.Marker), {
+  ssr: false,
+});
+
 
 async function getData(value: string) {
   const apiKey = process.env.NEXT_PUBLIC_API_KEY;
@@ -47,7 +61,7 @@ export function IpTrackerProvider({ children }: IpTrackerProps) {
   };
 
   const zoom = 50;
-  const customIcon = L.icon({
+  const customIcon = new L.Icon({
     iconUrl: "/images/icon-location.svg",
     iconSize: [30, 40],
     iconAnchor: [15, 40],
@@ -56,10 +70,10 @@ export function IpTrackerProvider({ children }: IpTrackerProps) {
 
   useEffect(() => {
     if (newCoords.length > 0) {
-      setDefaultCoords(newCoords); // Atualiza as coordenadas padrões com as novas coordenadas recebidas
+      setDefaultCoords(newCoords); // Update the default coordinates with the new coordinates received
       console.log("newCoords", newCoords);
     } else {
-      // Obtém as coordenadas de latitude e longitude usando a API de geolocalização
+      // Get latitude and longitude coordinates using the geolocation API
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const { latitude, longitude } = position.coords;
